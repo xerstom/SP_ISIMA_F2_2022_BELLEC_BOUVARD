@@ -7,15 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.blindquotes.Quote
 import com.example.blindquotes.adapter.QuoteAdapter
 import com.example.blindquotes.R
+import com.example.blindquotes.adapter.CategoryAdapter
+import com.example.blindquotes.rest.models.Category
+import com.example.blindquotes.rest.models.Quote
 import com.example.blindquotes.viewModels.CategoryViewModel
-import java.util.logging.Logger
+import com.example.blindquotes.viewModels.QuoteViewModel
 
 class MainFragment : Fragment() {
 
@@ -29,6 +32,13 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+        val model: CategoryViewModel by viewModels()
+        model.getCategories().observe(this.viewLifecycleOwner, Observer<List<Category>>{ categories ->
+            Log.d("DEBUG - CATEGORIES", categories.map { c -> c.name }.joinToString());
+            setupAdapter(categories)
+        })
+
+
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
@@ -44,11 +54,9 @@ class MainFragment : Fragment() {
         setupAdapter()
     }
 
-    private fun setupAdapter() {
-        val quotes = Quote.createQuoteList()
-        // Create adapter passing in the sample user data
-        // Attach the adapter to the recyclerview to populate items
-        recyclerView?.adapter = QuoteAdapter(quotes)
+    // Create + fill adapter
+    private fun setupAdapter(categories: List<Category> = Category.initDef()) {
+        recyclerView?.adapter = CategoryAdapter(categories, requireView())
         recyclerView?.layoutManager = LinearLayoutManager(activity)
     }
 

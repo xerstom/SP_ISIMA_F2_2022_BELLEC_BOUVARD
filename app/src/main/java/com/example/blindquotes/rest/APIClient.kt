@@ -1,5 +1,8 @@
 package com.example.blindquotes.rest;
 
+import android.util.Log
+import com.example.blindquotes.rest.models.Category
+import com.example.blindquotes.rest.models.Quote
 import io.ktor.client.HttpClient;
 import io.ktor.client.engine.cio.CIO;
 import io.ktor.client.features.json.*
@@ -30,8 +33,8 @@ class APIClient {
         }
     }
 
-    suspend fun getCategories(): List<String> {
-        return client.get() {
+    suspend fun getCategories(): List<Category> {
+        return client.get<List<Category>>() {
             url("https://blind-quotes-api.herokuapp.com/categories")
         }
     }

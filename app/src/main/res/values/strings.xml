@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BlindQuotes</string>
+    <string name="button_complete">Complete</string>
+    <string name="button_guess">Guess</string>
+    <string name="category_txt">Category_stub</string>
 </resources>

@@ -5,24 +5,25 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.blindquotes.rest.APIClient
+import com.example.blindquotes.rest.models.Category
 import kotlinx.coroutines.launch
 
 class CategoryViewModel : ViewModel() {
 
     val client: APIClient = APIClient()
 
-    private val categories: MutableLiveData<List<String>> by lazy {
-        MutableLiveData<List<String>>().also {
+    private val categories: MutableLiveData<List<Category>> by lazy {
+        MutableLiveData<List<Category>>().also {
             loadCategories()
         }
     }
 
-    fun getCategories(): LiveData<List<String>> {
+    fun getCategories(): LiveData<List<Category>> {
         return categories
     }
 
     private fun loadCategories() = viewModelScope.launch {
-        val categs: List<String> = client.getCategories()
-        categories.value = categs
+        val cats = client.getCategories()
+        categories.value = cats
     }
 }

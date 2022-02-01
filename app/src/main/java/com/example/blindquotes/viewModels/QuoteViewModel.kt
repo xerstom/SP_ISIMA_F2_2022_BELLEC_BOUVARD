@@ -5,25 +5,25 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.blindquotes.rest.APIClient
-import com.example.blindquotes.rest.Quote
+import com.example.blindquotes.rest.models.Quote
 import kotlinx.coroutines.launch
 
 class QuoteViewModel : ViewModel() {
 
     val client: APIClient = APIClient()
 
-    private val quotes: MutableLiveData<List<Quote>> by lazy {
-        MutableLiveData<List<Quote>>().also {
+    private val quotes: MutableLiveData<Quote> by lazy {
+        MutableLiveData<Quote>().also {
             loadQuotes()
         }
     }
 
-    fun getQuotes(): LiveData<List<Quote>> {
+    fun getQuotes(): LiveData<Quote> {
         return quotes
     }
 
     private fun loadQuotes() = viewModelScope.launch {
-        val qs: List<Quote> = client.getQuotes()
+        val qs: Quote = client.getQuote()
         quotes.value = qs
     }
 }
