@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blindquotes.R
 import com.example.blindquotes.rest.models.Category
 
-class CategoryAdapter (private val categories: List<Category>, val view: View) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>()
+class CategoryAdapter (private val categories: List<Category>, private val view: View) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>()
 {
     // All element for each item in the list
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,9 +29,9 @@ class CategoryAdapter (private val categories: List<Category>, val view: View) :
 
     // Bind a Category to the view
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val category: Category = categories.get(position)
+        val category: Category = categories[position]
         val categoryName = viewHolder.category
-        categoryName.setText(category.name)
+        categoryName.text = category.name
 
         viewHolder.guessBtn.setOnClickListener { onGuessClick(category.name) }
     }
@@ -40,7 +41,8 @@ class CategoryAdapter (private val categories: List<Category>, val view: View) :
         return categories.size
     }
 
-    fun onGuessClick(categoryName: String) {
-        view.findNavController()?.navigate(R.id.quoteFragment)
+    private fun onGuessClick(categoryName: String) {
+        val bundle = bundleOf("category" to categoryName)
+        view.findNavController().navigate(R.id.navigation_quote, bundle)
     }
 }

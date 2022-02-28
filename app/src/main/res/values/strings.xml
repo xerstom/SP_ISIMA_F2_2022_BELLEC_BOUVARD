@@ -3,4 +3,5 @@
     <string name="button_complete">Complete</string>
     <string name="button_guess">Guess</string>
     <string name="category_txt">Category_stub</string>
+    <string name="quote_descritpion"> <b>%1$s</b> played by <b>%2$s</b> </string>
 </resources>

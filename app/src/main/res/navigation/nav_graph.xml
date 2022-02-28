@@ -3,25 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/navigation_home"
         android:name="com.example.blindquotes.fragment.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" >
+        tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_mainFragment_to_quoteFragment"
-            app:destination="@id/quoteFragment" />
+            app:destination="@id/navigation_quote" />
     </fragment>
     <fragment
-        android:id="@+id/quoteFragment"
+        android:id="@+id/navigation_quote"
         android:name="com.example.blindquotes.fragment.QuoteFragment"
         android:label="quote_fragment"
         tools:layout="@layout/quote_fragment" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.blindquotes.activity.MainActivity"
-        android:label="main_activity"
-        tools:layout="@layout/main_activity" />
 </navigation>

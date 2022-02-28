@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 
 class CategoryViewModel : ViewModel() {
 
-    val client: APIClient = APIClient()
+    private val client: APIClient = APIClient()
 
     private val categories: MutableLiveData<List<Category>> by lazy {
         MutableLiveData<List<Category>>().also {
-            loadCategories()
+            loadCategories(it)
         }
     }
 
@@ -22,8 +22,7 @@ class CategoryViewModel : ViewModel() {
         return categories
     }
 
-    private fun loadCategories() = viewModelScope.launch {
-        val cats = client.getCategories()
-        categories.value = cats
+    private fun loadCategories(liveData: MutableLiveData<List<Category>>) = viewModelScope.launch {
+        liveData.value = client.getCategories()
     }
 }

@@ -1,6 +1,5 @@
 package com.example.blindquotes.rest;
 
-import android.util.Log
 import com.example.blindquotes.rest.models.Category
 import com.example.blindquotes.rest.models.Quote
 import io.ktor.client.HttpClient;
@@ -11,7 +10,7 @@ import io.ktor.client.request.*
 
 class APIClient {
 
-    val client = HttpClient(CIO) {
+    private val client = HttpClient(CIO) {
         install(JsonFeature) {
             serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
                 prettyPrint = true
@@ -21,9 +20,9 @@ class APIClient {
         }
     }
 
-    suspend fun getQuote(): Quote {
+    suspend fun getQuote(category: String): Quote {
          return client.get() {
-            url("https://blind-quotes-api.herokuapp.com/all/random")
+            url("https://blind-quotes-api.herokuapp.com/$category/random")
          }
     }
 
@@ -34,7 +33,7 @@ class APIClient {
     }
 
     suspend fun getCategories(): List<Category> {
-        return client.get<List<Category>>() {
+        return client.get() {
             url("https://blind-quotes-api.herokuapp.com/categories")
         }
     }
