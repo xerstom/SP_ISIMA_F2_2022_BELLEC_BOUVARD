@@ -15,6 +15,7 @@ class CategoryAdapter (private val categories: List<Category>, private val view:
     // All element for each item in the list
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val category = itemView.findViewById<TextView>(R.id.category_content)
+        val description = itemView.findViewById<TextView>(R.id.category_description)
         val guessBtn = itemView.findViewById<TextView>(R.id.button_guess)
         val completeBtn = itemView.findViewById<TextView>(R.id.button_complete)
     }
@@ -30,10 +31,11 @@ class CategoryAdapter (private val categories: List<Category>, private val view:
     // Bind a Category to the view
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val category: Category = categories[position]
-        val categoryName = viewHolder.category
-        categoryName.text = category.name
+        viewHolder.category.text = category.name
+        viewHolder.description.text = category.description
 
-        viewHolder.guessBtn.setOnClickListener { onGuessClick(category.name) }
+        viewHolder.guessBtn.setOnClickListener { onGuessClick(category.path) }
+        viewHolder.completeBtn.setOnClickListener { onCompleteClick(category.path) }
     }
 
     // Total count of items in the list
@@ -43,6 +45,11 @@ class CategoryAdapter (private val categories: List<Category>, private val view:
 
     private fun onGuessClick(categoryName: String) {
         val bundle = bundleOf("category" to categoryName)
-        view.findNavController().navigate(R.id.navigation_quote, bundle)
+        view.findNavController().navigate(R.id.navigation_guess_quote, bundle)
+    }
+
+    private fun onCompleteClick(categoryName: String) {
+        val bundle = bundleOf("category" to categoryName)
+        view.findNavController().navigate(R.id.navigation_complete_quote, bundle)
     }
 }

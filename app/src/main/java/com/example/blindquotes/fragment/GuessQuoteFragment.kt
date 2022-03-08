@@ -1,6 +1,5 @@
 package com.example.blindquotes.fragment
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.blindquotes.R
-import com.example.blindquotes.viewModels.QuoteViewModel
+import com.example.blindquotes.viewModels.GuessQuoteViewModel
 import com.squareup.picasso.Picasso
 
-class QuoteFragment : Fragment() {
+class GuessQuoteFragment : Fragment() {
 
     private lateinit var category: String
     private lateinit var content : TextView
@@ -26,32 +25,35 @@ class QuoteFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         category = arguments?.getString("category") ?: "all"
 
-        return inflater.inflate(R.layout.quote_fragment, container, false)
+        return inflater.inflate(R.layout.guess_quote_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val model: QuoteViewModel by viewModels()
+        val model: GuessQuoteViewModel by viewModels()
         model.setCategory(category)
 
-        content = view.findViewById<TextView>(R.id.quote_content)
-        description = view.findViewById<TextView>(R.id.quote_description)
-        title = view.findViewById<TextView>(R.id.quote_title)
-        image = view.findViewById<ImageView>(R.id.quote_image)
-        resetButton = view.findViewById<Button>(R.id.reset_button)
-        resetButton.setOnClickListener { setQuotes(model) }
+        content = view.findViewById(R.id.quote_content)
+        description = view.findViewById(R.id.quote_description)
+        title = view.findViewById(R.id.quote_title)
+        image = view.findViewById(R.id.quote_image)
+        resetButton = view.findViewById(R.id.reset_button)
+        resetButton.setOnClickListener { renew(model) }
 
-        setQuotes(model)
+        setupQuoteListener(model)
     }
 
-    private fun setQuotes(model:QuoteViewModel){
+    private fun setupQuoteListener(model:GuessQuoteViewModel) {
         model.getQuote().observe(this.viewLifecycleOwner) { quote ->
-            val res: Resources = resources
-            description.text = res.getString(R.string.quote_descritpion, quote.character, quote.actor);
+            description.text = resources.getString(R.string.quote_description, quote.character, quote.actor);
             content.text = quote.quote
             title.text = quote.title
 
             Picasso.get().load(quote.image).into(image);
         }
+    }
+
+    private fun renew(model: GuessQuoteViewModel) {
+        model.renew()
     }
 }

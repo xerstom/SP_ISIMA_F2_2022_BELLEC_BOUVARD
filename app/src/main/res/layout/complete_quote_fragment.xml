@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_complete_quote"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".fragment.CompleteQuoteFragment"
+    android:background="@color/background">
+
+    <ImageView
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:id="@+id/quote_image">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/quote_content"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="28sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/quote_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/quote_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:text="@string/complete_quote_another"
+        android:textSize="28sp"
+        android:backgroundTint="@color/guess_button"
+        android:layout_margin="10dp"
+        />
+</LinearLayout>
