@@ -33,11 +33,11 @@ class CompleteQuoteFragment : Fragment() {
         val model: CompleteQuoteViewModel by viewModels()
         model.setCategory(category)
 
-        content = view.findViewById(R.id.quote_content)
-        description = view.findViewById(R.id.quote_description)
-        title = view.findViewById(R.id.quote_title)
-        image = view.findViewById(R.id.quote_image)
-        resetButton = view.findViewById(R.id.reset_button)
+        content = view.findViewById(R.id.complete_quote_content)
+        description = view.findViewById(R.id.complete_quote_description)
+        title = view.findViewById(R.id.complete_quote_title)
+        image = view.findViewById(R.id.complete_quote_image)
+        resetButton = view.findViewById(R.id.complete_reset_button)
         resetButton.setOnClickListener { renew(model) }
 
         setupQuoteListener(model)

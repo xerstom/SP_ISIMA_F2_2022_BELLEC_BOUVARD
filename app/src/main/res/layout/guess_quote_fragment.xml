@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_guess_quote"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:padding="15dp"
     tools:context=".fragment.GuessQuoteFragment"
     android:background="@color/background">
 
-    <ImageView
-        android:layout_width="380dp"
-        android:layout_height="200dp"
-        android:id="@+id/quote_image">
-
-    </ImageView>
-
-    <TextView
-        android:id="@+id/quote_content"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="28sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-    <TextView
-        android:id="@+id/quote_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/quote_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/guess_quote_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/reset_button"
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
-        android:text="@string/guess_quote_another"
-        android:textSize="28sp"
-        android:backgroundTint="@color/guess_button"
-        android:layout_margin="10dp"
-        />
-</LinearLayout>
+        <TextView
+            android:id="@+id/guess_quote_content"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/guess_quote_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/guess_quote_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/guess_reset_button"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:text="@string/guess_quote_another"
+            android:textSize="28sp"
+            android:backgroundTint="@color/guess_button"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+</ScrollView>
