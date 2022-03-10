@@ -18,10 +18,7 @@ class MainFragment : Fragment() {
 
     private var recyclerView: RecyclerView? = null
 
-    private lateinit var viewModel: CategoryViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        viewModel = ViewModelProvider(this)[CategoryViewModel::class.java]
 
         val model: CategoryViewModel by viewModels()
         model.getCategories().observe(this.viewLifecycleOwner) { categories ->

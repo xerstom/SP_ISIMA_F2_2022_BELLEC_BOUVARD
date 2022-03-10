@@ -8,4 +8,6 @@
     <string name="category_desc">Description</string>
     <string name="complete_quote_another">Another One</string>
     <string name="guess_quote_another">Another One</string>
+    <string name="quote_container_button_answers">Answers</string>
+    <string name="quote_container_button_another">Another One</string>
 </resources>

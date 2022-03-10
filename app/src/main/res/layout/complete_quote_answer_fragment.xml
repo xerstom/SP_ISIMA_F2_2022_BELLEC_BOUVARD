@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_guess_quote"
+    android:id="@+id/fragment_answer_complete_quote"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:padding="15dp"
-    tools:context=".fragment.GuessQuoteFragment"
-    android:background="@color/background">
+    tools:context=".fragment.completeQuote.CompleteQuoteAnswerFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,13 +14,14 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/guess_quote_image"
+            android:id="@+id/complete_answer_quote_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:gravity="center" />
 
         <TextView
-            android:id="@+id/guess_quote_content"
+            android:id="@+id/complete_answer_quote_content"
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_weight="1"
@@ -37,7 +35,7 @@
             android:background="@android:color/darker_gray"/>
 
         <TextView
-            android:id="@+id/guess_quote_title"
+            android:id="@+id/complete_answer_quote_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -48,7 +46,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/guess_quote_description"
+            android:id="@+id/complete_answer_quote_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -57,15 +55,5 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/guess_reset_button"
-            android:layout_width="match_parent"
-            android:layout_height="91dp"
-            android:text="@string/guess_quote_another"
-            android:textSize="28sp"
-            android:backgroundTint="@color/guess_button"
-            android:layout_margin="10dp"
-            />
     </LinearLayout>
 </ScrollView>

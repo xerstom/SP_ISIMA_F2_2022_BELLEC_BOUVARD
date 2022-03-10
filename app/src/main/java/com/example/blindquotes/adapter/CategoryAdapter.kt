@@ -45,11 +45,11 @@ class CategoryAdapter (private val categories: List<Category>, private val view:
 
     private fun onGuessClick(categoryName: String) {
         val bundle = bundleOf("category" to categoryName)
-        view.findNavController().navigate(R.id.navigation_guess_quote, bundle)
+        view.findNavController().navigate(R.id.navigation_guess_container, bundle)
     }
 
     private fun onCompleteClick(categoryName: String) {
         val bundle = bundleOf("category" to categoryName)
-        view.findNavController().navigate(R.id.navigation_complete_quote, bundle)
+        view.findNavController().navigate(R.id.navigation_complete_container, bundle)
     }
 }

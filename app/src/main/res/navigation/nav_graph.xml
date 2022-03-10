@@ -11,21 +11,24 @@
         android:label="main_fragment"
         tools:layout="@layout/main_fragment">
         <action
-            android:id="@+id/action_mainFragment_to_guessQuoteFragment"
-            app:destination="@id/navigation_guess_quote" />
+            android:id="@+id/action_mainFragment_to_guessContainerFragment"
+            app:destination="@id/navigation_guess_container" />
         <action
-            android:id="@+id/action_mainFragment_to_completeQuoteFragment"
-            app:destination="@id/navigation_complete_quote" />
+            android:id="@+id/action_mainFragment_to_completeContainerFragment"
+            app:destination="@id/navigation_complete_container" />
     </fragment>
-    <fragment
-        android:id="@+id/navigation_guess_quote"
-        android:name="com.example.blindquotes.fragment.GuessQuoteFragment"
-        android:label="quote_fragment"
-        tools:layout="@layout/guess_quote_fragment" />
 
+    <!-- guess -->
     <fragment
-        android:id="@+id/navigation_complete_quote"
-        android:name="com.example.blindquotes.fragment.CompleteQuoteFragment"
-        android:label="quote_fragment"
-        tools:layout="@layout/complete_quote_fragment" />
+        android:id="@+id/navigation_guess_container"
+        android:name="com.example.blindquotes.fragment.guessQuote.GuessContainerFragment"
+        android:label="guess_container_fragment"
+        tools:layout="@layout/guess_container_fragment" />
+
+    <!-- complete -->
+    <fragment
+        android:id="@+id/navigation_complete_container"
+        android:name="com.example.blindquotes.fragment.completeQuote.CompleteContainerFragment"
+        android:label="complete_container_fragment"
+        tools:layout="@layout/complete_container_fragment" />
 </navigation>
