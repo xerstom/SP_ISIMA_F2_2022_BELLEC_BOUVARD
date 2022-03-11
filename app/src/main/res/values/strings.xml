@@ -3,11 +3,9 @@
     <string name="button_complete">Complete</string>
     <string name="button_guess">Guess</string>
     <string name="category_txt">Category_stub</string>
+    <string name="category_desc">Description</string>
     <string name="quote_description"> <b>%1$s</b> played by <b>%2$s</b> </string>
     <string name="guess_quote">%1$s %2$s  %3$s</string>
-    <string name="category_desc">Description</string>
-    <string name="complete_quote_another">Another One</string>
-    <string name="guess_quote_another">Another One</string>
     <string name="quote_container_button_answers">Answers</string>
     <string name="quote_container_button_another">Another One</string>
 </resources>

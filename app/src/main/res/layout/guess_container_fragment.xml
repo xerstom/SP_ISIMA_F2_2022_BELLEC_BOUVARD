@@ -23,6 +23,6 @@
         android:layout_height="75dp"
         android:text="@string/quote_container_button_answers"
         android:textSize="28sp"
-        android:backgroundTint="@color/guess_button"
+        android:backgroundTint="@color/yellow"
         android:layout_margin="10dp"/>
 </RelativeLayout>
